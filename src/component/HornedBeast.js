@@ -1,36 +1,48 @@
 import React from "react";
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-class HornedBeast extends React.Component{
-    render(){
-        return (
-            <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={this.props.imageUrl} alt={this.props.title} title={this.props.title}/>
-              <Card.Body>
-                <Card.Title>{this.props.title}</Card.Title>
-                <Card.Text>
-                {this.props.description}
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-          );
-              
+class HornedBeast extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      numOfVotes: 0,
+    };
+  }
+  increamtNum = () => {
+    this.setState({
+      numOfVotes: this.state.numOfVotes + 1,
+    });
+  };
 
+  render() {
+    return (
+      
+        <Card class="card" style={{ width: "18rem" }}>
+        <Card.Img class="card-img-top"
+          variant="top"
+          src={this.props.imageUrl}
+          alt={this.props.title}
+          title={this.props.title}
+          onClick={this.increamtNum}
+        />
+        <Card.Body>
+          <Card.Title class="card-title">{this.props.title}</Card.Title>
+          <Card.Text class="card-text">
+            {this.props.description}
 
-
-
-        // return(
-           
-        //     <div>
-        //       <h2>{this.props.title}</h2>
-        //       <img src={this.props.imageUrl} alt={this.props.title} title={this.props.title}></img>
-        //       <p>{this.props.description}</p>
-        //     </div>
-        // )
-    }
+            <p>Num Of Votes :{this.state.numOfVotes}</p>
+          </Card.Text>
+          <Button variant="primary" class="btn btn-primary">Go somewhere</Button>
+        </Card.Body>
+      </Card>
+      
+      
+      
+    );
     
+  }
 }
 
 export default HornedBeast;
