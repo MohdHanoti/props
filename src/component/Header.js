@@ -1,13 +1,13 @@
 import React from 'react';
 
-class Footer extends React.Component{
+class Header extends React.Component{
     render(){
     return(
         <div>
-        <p></p>
+        <h1> </h1>
         </div>
     )
     }
 }
 
-export default Footer;
+export default Header;
