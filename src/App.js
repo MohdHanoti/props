@@ -14,6 +14,7 @@ class App extends React.Component {
       <Header/>
       <Main Data={data}/>
       <Footer/>
+      <SelectedBeast/>
 
     </div>
     )
