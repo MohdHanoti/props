@@ -19,6 +19,7 @@ class HornedBeast extends React.Component {
 
   render() {
     return (
+      <div class="modal-body">
       <Col>
         <Card class="card" style={{ width: "18rem" }}>
         <Card.Img class="card-img-top"
@@ -38,8 +39,8 @@ class HornedBeast extends React.Component {
           <Button variant="primary" class="btn btn-primary">Go somewhere</Button>
         </Card.Body>
       </Card>
-      
       </Col>
+      </div>
       
       
     );
