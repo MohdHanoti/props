@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import Col from 'react-bootstrap/Col';
 
 class HornedBeast extends React.Component {
@@ -36,7 +36,7 @@ class HornedBeast extends React.Component {
 
             <p>Num Of Votes :{this.state.numOfVotes}</p>
           </Card.Text>
-          <Button variant="primary" class="btn btn-primary">Go somewhere</Button>
+          <Button variant="primary" class="btn btn-primary" onClick={()=>{this.props.myFunction(this.props.title)}}>Select</Button>
         </Card.Body>
       </Card>
       </Col>
