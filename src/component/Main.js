@@ -18,11 +18,13 @@ class Main extends React.Component {
         <HornedBeast
           key={idx}
           index={idx}
+          horns={element.horns}
           imageUrl={element.image_url}
           title={element.title}
           description={element.description}
           myFunction={this.props.myFunction}
-
+          One={this.props.One}
+          Two={this.props.Two}
         />
         
         
