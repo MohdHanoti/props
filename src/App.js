@@ -14,18 +14,48 @@ class App extends React.Component {
     this.state={
       selBeast:{},
       show:false,
-      Horns:0
+      filterdHornedBeaset:data,
+      userInput:0
+      
     }
   }
   
-  myFunction=(title,horns)=>{
-    const hornsBeast=data.find(beast=>beast.horns===horns);
-    const selectedBeast=data.find(beast=>beast.title===title);
+  filterHandler=(e)=>{
+    
+    let userSel=parseInt(e.target.value);
+    let filteredNum;
+    switch(userSel){
+      case 0: 
+      filteredNum=data;
+      break;
+      case 1:
+      case 2: 
+      filteredNum=data.filter(beast=>beast.horns===userSel);
+      break;
+      case 3:
+        filteredNum=data.filter(beast=>beast.horns>=userSel);
+      break;
+      default: 
+      return true;
+    }
+    
+    
+   this.setState({
+    userInput:userSel,
+    filterdHornedBeaset:filteredNum
+   }) 
+  }
+  filterWork=()=>{
 
+  }
+  
+  myFunction=(title)=>{
+    
+    const selectedBeast=data.find(beast=>beast.title===title);
     this.setState({
       show:true,
-      selBeast:selectedBeast,
-      Horns:hornsBeast
+      selBeast:selectedBeast
+      
     })
   }
     handleClose=()=>{
@@ -34,27 +64,15 @@ class App extends React.Component {
         show:false
       })
     }
-    opsionOne=()=>{
-      
-      this.this.setState({
-        Horns:1
-      })
-      
-    }
-    opsionTow=()=>{
-      this.this.setState({
-        Horns:2
-      })
-    }
-
+    
  
   render(){
     return( 
     <div>
       <h1>Welcome to my first React<br></br></h1>
-      <UserForm hornsFunction={this.hornsFunction} Horns={this.state.Horns} One={this.opsionOne} Two={this.opsionTow}/>
+      <UserForm  filterHandler={this.filterHandler} />
       <Header/>
-      <Main Data={data} myFunction={this.myFunction} One={this.opsionOne} Two={this.opsionTow}/>
+      <Main filteredData={this.state.filterdHornedBeaset} data={data} myFunction={this.myFunction} />
       <Footer/>
       <UserModle handleClose={this.handleClose} showModle={this.state.show} selBeast={this.state.selBeast}/>
       

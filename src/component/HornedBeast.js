@@ -11,6 +11,7 @@ class HornedBeast extends React.Component {
       numOfVotes: 0,
     };
   }
+
   increamtNum = () => {
     this.setState({
       numOfVotes: this.state.numOfVotes + 1,
@@ -19,9 +20,10 @@ class HornedBeast extends React.Component {
 
   render() {
     return (
-      <div class="modal-body">
+      
+      <div class="modal-body" >
       <Col>
-        <Card class="card" style={{ width: "18rem" }}>
+        <Card class="card" style={{ width: "18rem",height:"39rem"}}>
         <Card.Img class="card-img-top"
           variant="top"
           src={this.props.imageUrl}
@@ -33,8 +35,10 @@ class HornedBeast extends React.Component {
           <Card.Title class="card-title">{this.props.title}</Card.Title>
           <Card.Text class="card-text">
             {this.props.description}
+           <p>Num of horns: {this.props.horns}</p> 
 
-            <p>Num Of Votes :{this.state.numOfVotes}</p>
+
+            <p>Num Of Votes:{this.state.numOfVotes}</p>
           </Card.Text>
           <Button variant="primary" class="btn btn-primary" onClick={()=>{this.props.myFunction(this.props.title)}}>Select</Button>
         </Card.Body>
