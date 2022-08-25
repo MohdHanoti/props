@@ -9,11 +9,11 @@ import HornedBeast from "./HornedBeast";
 class Main extends React.Component {
   
   render() {
-    console.log(this.props.Data);
+    
     return (
       <div>
         <Row xs={1} md={4} className="g-4">
-      {this.props.Data.map((element,idx) => (
+      {this.props.filteredData.map((element,idx) => (
        
         <HornedBeast
           key={idx}
@@ -23,8 +23,7 @@ class Main extends React.Component {
           title={element.title}
           description={element.description}
           myFunction={this.props.myFunction}
-          One={this.props.One}
-          Two={this.props.Two}
+          
         />
         
         
